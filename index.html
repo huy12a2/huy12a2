@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gia Hân Portfolio</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: #0f172a;
+    color: white;
+}
+
+/* NAVBAR */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 10%;
+    background: rgba(255,255,255,0.05);
+    position: sticky;
+    top: 0;
+}
+
+nav h1 {
+    color: #38bdf8;
+}
+
+nav a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #38bdf8;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero img {
+    width: 150px;
+    border-radius: 50%;
+    border: 4px solid #38bdf8;
+}
+
+.hero h2 {
+    margin-top: 20px;
+    font-size: 32px;
+}
+
+.hero p {
+    color: #cbd5f5;
+    margin-top: 10px;
+}
+
+/* SECTION */
+.section {
+    padding: 60px 10%;
+}
+
+.section h2 {
+    margin-bottom: 20px;
+    color: #38bdf8;
+}
+
+/* CARD */
+.card {
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* PROJECT GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* BUTTON */
+button {
+    background: #38bdf8;
+    border: none;
+    padding: 10px 20px;
+    color: black;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0ea5e9;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #020617;
+    margin-top: 40px;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <h1>Gia Hân</h1>
+    <div>
+        <a href="#about">Giới thiệu</a>
+        <a href="#skills">Kỹ năng</a>
+        <a href="#projects">Dự án</a>
+        <a href="#contact">Liên hệ</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <img src="https://i.imgur.com/2DhmtJ4.png">
+    <h2>Xin chào, mình là Gia Hân 👋</h2>
+    <p>Học sinh | Yêu thích Văn & Tiếng Anh | Định hướng tương lai</p>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+    <h2>👤 Giới thiệu</h2>
+    <div class="card">
+        Mình là học sinh đang chuẩn bị cho kỳ thi đại học. 
+        Mình có thế mạnh về Văn và Tiếng Anh, yêu thích sáng tạo nội dung và khám phá bản thân.
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="section">
+    <h2>🎯 Kỹ năng</h2>
+    <div class="grid">
+        <div class="card">✍️ Viết văn</div>
+        <div class="card">🌍 Tiếng Anh</div>
+        <div class="card">💡 Sáng tạo</div>
+        <div class="card">🧠 Tư duy logic cơ bản</div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section">
+    <h2>📁 Dự án</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Website cá nhân</h3>
+            <p>Trang web giới thiệu bản thân đầu tiên.</p>
+        </div>
+        <div class="card">
+            <h3>Bài viết văn học</h3>
+            <p>Các bài văn đạt điểm cao.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+    <h2>📞 Liên hệ</h2>
+    <div class="card">
+        <p>Email: example@gmail.com</p>
+        <p>Facebook: fb.com/yourlink</p>
+        <button onclick="contact()">Nhắn mình 💬</button>
+    </div>
+</section>
+
+<footer>
+    © 2026 Gia Hân ✨
+</footer>
+
+<script>
+function contact(){
+    alert("Cảm ơn bạn đã quan tâm! 💙");
+}
+
+/* HIỆU ỨNG SCROLL */
+window.addEventListener("scroll", function(){
+    const cards = document.querySelectorAll(".card");
+    cards.forEach(card => {
+        const top = card.getBoundingClientRect().top;
+        if(top < window.innerHeight - 50){
+            card.style.opacity = 1;
+            card.style.transform = "translateY(0)";
+        }
+    });
+});
+
+/* BAN ĐẦU */
+document.querySelectorAll(".card").forEach(card=>{
+    card.style.opacity = 0;
+    card.style.transform = "translateY(30px)";
+    card.style.transition = "0.5s";
+});
+</script>
+
+</body>
+</html>
